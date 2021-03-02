@@ -7,7 +7,7 @@ let width = 0
 let AnimateID
 
 function rectangleAnimate() {  
-  ctxRectangleAnimate.clearRect(0, 0, 300, 150)
+  ctxRectangleAnimate.clearRect(0, 0, 350, 200)
 
   width += 5
 
@@ -31,6 +31,6 @@ ReactangleAnimateBtn.onclick = () => {
 // アニメーションバックボタン
 const ReactangleAnimateBack = document.querySelector('#rectangle-animate-back').addEventListener('click', () => {
   cancelAnimationFrame(AnimateID)
-  ctxRectangleAnimate.clearRect(0, 0, 300, 150)
+  ctxRectangleAnimate.clearRect(0, 0, 350, 200)
   width = 0
 })
