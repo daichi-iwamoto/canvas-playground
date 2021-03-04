@@ -68,18 +68,22 @@ function PathAnimate() {
 // アニメーションスタートボタン
 const PathleAnimateBtn = document.getElementById('path-animate-btn')
 PathleAnimateBtn.onclick = () => {
-  PathAnimateID = requestAnimationFrame(PathAnimate)
+  if (!PathAnimateID) {
+    PathAnimateID = requestAnimationFrame(PathAnimate)
+  }
 }
 
 // アニメーションバックボタン
 const PathleAnimateBack = document.querySelector('#path-animate-back').addEventListener('click', () => {
   cancelAnimationFrame(PathAnimateID)
+  PathAnimateID = null
+
   ctxPathAnimate.clearRect(0, 0, 350, 200)
 
   for (let i = 0; i < lineNum; i++) {
     PathAnimateMoveHeight[i] = Math.floor(Math.random() * 5) + 1
     PathAnimateMoveWidth[i] = Math.floor(Math.random() * 5) + 1
-    
+
     PathAnimateSpeedHeight[i] = Math.floor(Math.random() * 5) + 1
     PathAnimateSpeedWidth[i] = Math.floor(Math.random() * 5) + 1
 

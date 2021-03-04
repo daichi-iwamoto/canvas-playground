@@ -25,12 +25,16 @@ function rectangleAnimate() {
 // アニメーションスタートボタン
 const ReactangleAnimateBtn = document.getElementById('rectangle-animate-btn')
 ReactangleAnimateBtn.onclick = () => {
-  AnimateID = requestAnimationFrame(rectangleAnimate)
+  if (!AnimateID) {
+    AnimateID = requestAnimationFrame(rectangleAnimate)
+  }
 }
 
 // アニメーションバックボタン
 const ReactangleAnimateBack = document.querySelector('#rectangle-animate-back').addEventListener('click', () => {
   cancelAnimationFrame(AnimateID)
+  AnimateID = null
+
   ctxRectangleAnimate.clearRect(0, 0, 350, 200)
   width = 0
 })

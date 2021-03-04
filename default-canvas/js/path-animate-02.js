@@ -2,6 +2,8 @@
 const canvasPathleAnimate02 = document.getElementById('canvas-path-animate-02')
 const ctxPathAnimate02 = canvasPathleAnimate02.getContext('2d')
 
+let PathAnimate02ID
+
 // Pathの始点
 let PathAnimate02Path = []
 
@@ -40,12 +42,16 @@ function PathAnimate02() {
 // アニメーションスタートボタン
 const PathleAnimate02Btn = document.getElementById('path-animate-02-btn')
 PathleAnimate02Btn.onclick = () => {
-  PathAnimate02ID = requestAnimationFrame(PathAnimate02)
+  if (!PathAnimate02ID) {
+    PathAnimate02ID = requestAnimationFrame(PathAnimate02)
+  }
 }
 
 // アニメーションバックボタン
 const PathleAnimate02Back = document.querySelector('#path-animate-02-back').addEventListener('click', () => {
   cancelAnimationFrame(PathAnimate02ID)
+  PathAnimate02ID = null
+
   ctxPathAnimate02.clearRect(0, 0, 350, 200)
   for (let i = 0; i < lineNum; i++) {
     PathAnimate02MoveHeight[i] = Math.floor(Math.random() * 5) + 1

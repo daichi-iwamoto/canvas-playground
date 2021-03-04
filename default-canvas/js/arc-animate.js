@@ -2,6 +2,8 @@
 const canvasArcleAnimate = document.getElementById('canvas-arc-animate')
 const ctxArcAnimate = canvasArcleAnimate.getContext('2d')
 
+let ArcAnimateID
+
 // 円の出現位置
 let ArcPath = [[Math.floor(Math.random() * 350) + 1, Math.floor(Math.random() * 200) + 1]]
 // 円のサイズ
@@ -44,12 +46,16 @@ function ArcAnimate() {
 // アニメーションスタートボタン
 const ArcleAnimateBtn = document.getElementById('arc-animate-btn')
 ArcleAnimateBtn.onclick = () => {
-  ArcAnimateID = requestAnimationFrame(ArcAnimate)
+  if (!ArcAnimateID) {
+    ArcAnimateID = requestAnimationFrame(ArcAnimate)
+  }
 }
 
 // アニメーションバックボタン
 const ArcleAnimateBack = document.querySelector('#arc-animate-back').addEventListener('click', () => {
   cancelAnimationFrame(ArcAnimateID)
+  ArcAnimateID = null
+
   ctxArcAnimate.clearRect(0, 0, 350, 200)
   ArcPath = [[Math.floor(Math.random() * 350) + 1, Math.floor(Math.random() * 200) + 1]]
   ArcSize = [Math.floor(Math.random() * 20) + 5]
