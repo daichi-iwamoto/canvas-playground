@@ -8,18 +8,14 @@ body {
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
-  margin: 0;
-  padding: 0;
 }
 
 h1 {
   text-align: center;
-  margin: 0 0 50px;
+  margin: 30px 30px 50px;
   padding: 10px;
+  border-bottom: double 4px;
   width: 100%;
-  background-color: #1d1e1f;
-  color: #fefefe;
-  border-bottom: solid 8px #e84a5f;
 }
 
 section {
@@ -33,7 +29,7 @@ section {
   margin: 0 auto 50px;
   width: 350px;
   box-shadow: 5px 10px 20px rgba(0,0,0,0.25);
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 section h2 {

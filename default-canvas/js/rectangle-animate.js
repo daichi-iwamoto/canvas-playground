@@ -9,15 +9,15 @@ let AnimateID
 function rectangleAnimate() {  
   ctxRectangleAnimate.clearRect(0, 0, 350, 200)
 
-  width += 5
+  width += 10
 
   ctxRectangleAnimate.fillStyle = 'rgba(42, 54, 59, 1)'
-  ctxRectangleAnimate.fillRect(0, 10, width, 30)
+  ctxRectangleAnimate.fillRect(0, 50, width, 30)
   
   ctxRectangleAnimate.fillStyle = 'rgba(232, 74, 95, 1)'
-  ctxRectangleAnimate.fillRect(0, 80, width, 30)
+  ctxRectangleAnimate.fillRect(0, 100, width, 30)
 
-  if (width <= 300) {
+  if (width <= 350) {
     AnimateID = requestAnimationFrame(rectangleAnimate)
   }
 }

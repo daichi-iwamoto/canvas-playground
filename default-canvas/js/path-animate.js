@@ -32,11 +32,8 @@ for (let i = 0; i < lineNum; i++) {
 let PathAnimateID
 
 function PathAnimate() {
-  ctxPathAnimate.fillStyle = 'rgba(42, 54, 59, 1)'
-  ctxPathAnimate.fillStyle = 'rgba(232, 74, 95, 1)'
-
   // Pathで線引き
-  if (PathAnimateMoveWidth[0] <= 50) {
+  if (PathAnimateMoveWidth[0] <= 100) {
     ctxPathAnimate.clearRect(0, 0, 350, 200)
     
     for (let j = 0; j < lineNum; j++) {
@@ -64,7 +61,6 @@ function PathAnimate() {
       PathAnimateMoveHeight[j] += PathAnimateSpeedHeight[j]
     }
     
-    console.log(PathAnimateMoveWidth[0]);
     PathAnimateID = requestAnimationFrame(PathAnimate)
   }
 }
